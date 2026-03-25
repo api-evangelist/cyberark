@@ -1,0 +1,38 @@
+aid: cyberark
+name: CyberArk
+description: >-
+  CyberArk is a privileged access management platform for securing, managing, and auditing privileged credentials and secrets across enterprise environments.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Authentication
+  - Privileged Access
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml
+created: '2026-03-25'
+modified: '2026-03-25'
+specificationVersion: '0.19'
+apis:
+  - aid: cyberark:cyberark
+    name: CyberArk
+    description: >-
+      CyberArk is a privileged access management platform for securing, managing, and auditing privileged credentials and secrets across enterprise environments.
+    humanURL: https://www.cyberark.com
+    tags:
+      - Authentication
+      - Privileged Access
+    properties:
+      - type: Documentation
+        url: https://docs.cyberark.com
+      - type: GitHub Repository
+        url: https://github.com/cyberark
+common:
+  - type: Website
+    url: https://www.cyberark.com
+  - type: Documentation
+    url: https://docs.cyberark.com
+  - type: GitHub Organization
+    url: https://github.com/cyberark
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
