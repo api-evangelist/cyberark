@@ -1,0 +1,46 @@
+extends: spectral:oas
+rules:
+  cyberark-conjur-info-contact:
+    description: CyberArk Conjur API spec must declare a contact.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  cyberark-conjur-server-https:
+    description: Conjur server URLs must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  cyberark-conjur-tags-required:
+    description: Every operation must declare at least one tag.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+  cyberark-conjur-operation-id-required:
+    description: Every operation must declare an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+  cyberark-conjur-account-path-param:
+    description: Conjur paths must include an {account} path parameter.
+    severity: warn
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: '\{account\}'
+  cyberark-conjur-bearer-auth:
+    description: Conjur uses bearer-token authentication via securitySchemes.
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      field: ConjurAuth
+      function: truthy

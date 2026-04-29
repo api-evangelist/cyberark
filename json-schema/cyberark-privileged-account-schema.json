@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/json-schema/cyberark-privileged-account-schema.json",
+  "title": "PrivilegedAccount",
+  "description": "A privileged account stored in the CyberArk Vault (PAM Self-Hosted or Privilege Cloud).",
+  "type": "object",
+  "required": ["name", "platformId", "safeName"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "description": "Account display name." },
+    "address": { "type": "string", "description": "Hostname, FQDN, or IP of the target system." },
+    "userName": { "type": "string" },
+    "platformId": { "type": "string", "description": "Platform configuration controlling rotation policy." },
+    "safeName": { "type": "string" },
+    "secretType": {
+      "type": "string",
+      "enum": ["password", "key", "certificate"]
+    },
+    "secretManagement": {
+      "type": "object",
+      "properties": {
+        "automaticManagementEnabled": { "type": "boolean" },
+        "manualManagementReason": { "type": "string" },
+        "lastModifiedTime": { "type": "string", "format": "date-time" }
+      }
+    },
+    "remoteMachinesAccess": {
+      "type": "object",
+      "properties": {
+        "remoteMachines": { "type": "string" },
+        "accessRestrictedToRemoteMachines": { "type": "boolean" }
+      }
+    }
+  }
+}

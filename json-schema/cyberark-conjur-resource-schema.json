@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/json-schema/cyberark-conjur-resource-schema.json",
+  "title": "ConjurResource",
+  "description": "A managed object in Conjur policy (user, host, group, layer, variable, policy, or webservice).",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Fully qualified resource identifier (account:kind:identifier)."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Resource identifier of the owner role."
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "privilege": { "type": "string" },
+          "role": { "type": "string" },
+          "policy": { "type": "string" }
+        }
+      }
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "value": { "type": "string" },
+          "policy": { "type": "string" }
+        }
+      }
+    },
+    "policy_versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": { "type": "integer" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "policy_text": { "type": "string" },
+          "policy_sha256": { "type": "string" }
+        }
+      }
+    }
+  }
+}

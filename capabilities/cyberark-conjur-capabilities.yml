@@ -1,0 +1,58 @@
+name: CyberArk Conjur Capabilities
+description: >-
+  Capability profile for the CyberArk Conjur Secrets Manager REST API,
+  derived from the canonical conjur-openapi-spec. Each capability maps
+  to one or more endpoints exposed at the Conjur Self-Hosted appliance
+  or the CyberArk Conjur Cloud tenant base URL.
+modified: '2026-04-28'
+api: cyberark-conjur
+capabilities:
+  - id: authenticate
+    name: Authenticate Identity
+    description: Exchange API key or external credentials for a short-lived Conjur access token.
+    operations:
+      - GET /authn/{account}/login
+      - POST /authn/{account}/{login}/authenticate
+  - id: load-policy
+    name: Load Policy
+    description: Load, replace, or update Conjur policy YAML defining hosts, users, groups, layers, variables, and permissions.
+    operations:
+      - POST /policies/{account}/policy/{identifier}
+      - PUT /policies/{account}/policy/{identifier}
+      - PATCH /policies/{account}/policy/{identifier}
+  - id: retrieve-secret
+    name: Retrieve Secret
+    description: Read a secret value bound to a Conjur variable resource (with optional version).
+    operations:
+      - GET /secrets/{account}/{kind}/{identifier}
+  - id: store-secret
+    name: Store Secret
+    description: Write a new value to a Conjur variable resource.
+    operations:
+      - POST /secrets/{account}/{kind}/{identifier}
+  - id: list-resources
+    name: List Resources
+    description: List resources of a given kind (user, host, group, layer, variable, policy, webservice).
+    operations:
+      - GET /resources/{account}
+  - id: show-resource
+    name: Show Resource
+    description: Retrieve metadata, permissions, and policy versions for a single resource.
+    operations:
+      - GET /resources/{account}/{kind}/{identifier}
+  - id: show-role
+    name: Show Role
+    description: Retrieve role membership for a user, host, group, or layer.
+    operations:
+      - GET /roles/{account}/{kind}/{identifier}
+  - id: show-public-keys
+    name: Show Public Keys
+    description: Retrieve public keys associated with a user or host (for SSH and TLS workflows).
+    operations:
+      - GET /public_keys/{account}/{kind}/{identifier}
+  - id: server-health
+    name: Server Health and Info
+    description: Verify Conjur server availability and retrieve server build information.
+    operations:
+      - GET /info
+      - GET /health

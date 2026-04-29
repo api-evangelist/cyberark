@@ -1,0 +1,56 @@
+name: CyberArk Vocabulary
+description: >-
+  Controlled vocabulary describing the core concepts of CyberArk's
+  Identity Security Platform: privileged accounts, safes, secrets,
+  Conjur policies and resources, identity tenants, and endpoint
+  privilege management.
+modified: '2026-04-28'
+terms:
+  - term: PrivilegedAccount
+    description: An account in PAM Self-Hosted or Privilege Cloud that holds privileged credentials managed and rotated by the Vault.
+    properties:
+      - id
+      - name
+      - address
+      - userName
+      - platformId
+      - safeName
+      - secretType
+      - secretManagement
+  - term: Safe
+    description: A logical container of privileged accounts in the CyberArk Vault with its own access control list.
+    properties:
+      - safeName
+      - description
+      - location
+      - olacEnabled
+      - managingCPM
+      - numberOfDaysRetention
+  - term: Platform
+    description: A configuration template that defines policy, password rotation, and connector behavior for a class of privileged accounts.
+  - term: ConjurResource
+    description: A managed object in Conjur policy (user, host, group, layer, variable, policy, or webservice).
+    properties:
+      - id
+      - kind
+      - owner
+      - permissions
+      - annotations
+  - term: ConjurVariable
+    description: A Conjur resource that holds a secret value, versioned and access-controlled by policy.
+    properties:
+      - id
+      - currentValue
+      - version
+  - term: ConjurHost
+    description: A non-human identity (machine, container, application) authenticated to Conjur via an authenticator.
+    properties:
+      - id
+      - apiKey
+      - layer
+  - term: IdentityTenant
+    description: A CyberArk Identity tenant providing workforce or customer SSO, MFA, and lifecycle.
+  - term: AppRole
+    description: An application or workload registered in CyberArk Identity for OAuth2 / OIDC delegation.
+  - term: EndpointAgent
+    description: A CyberArk Endpoint Privilege Manager agent installed on Windows, macOS, or Linux endpoints to enforce least privilege.
