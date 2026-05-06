@@ -4,114 +4,59 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CyberArk
 providerId: cyberark
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Authentication
-  - Cloud Security
-  - Conjur
-  - Credential Vault
-  - DevOps Secrets
-  - Endpoint Privilege Management
   - Identity Security
-  - Machine Identity
-  - MFA
-  - OpenAPI
-  - PAM
-  - Privileged Access
   - Privileged Access Management
   - Secrets Management
-  - Session Management
-  - SSO
-  - Vault
-  - Zero Trust
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the CyberArk API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: CyberArk REST APIs (PAM Self-Hosted, Privilege Cloud, Identity, Conjur) are tenant- or vault-scoped
+  and do not publish fixed numeric rate limits. Conjur enforces a configurable throttle for token issuance;
+  Privilege Cloud and Identity throttle abusive clients via 429.
+sources:
+  - https://www.cyberark.com/products/
+  - https://docs.cyberark.com/
+notes: CyberArk does not publish a single public rate-limit doc. Per-product limits live in product-specific
+  documentation; reconcile after onboarding. Self-Hosted PAM limits depend on customer infrastructure
+  sizing.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
+  - name: PAM Self-Hosted REST API
+    scope: tenant
+    metric: varies
+    limit: depends on customer-deployed PVWA / CPM capacity (self-hosted)
+    applies:
+      - CyberArk PAM Self-Hosted REST API
+  - name: Privilege Cloud REST API
+    scope: tenant
+    metric: varies
+    limit: see CyberArk Privilege Cloud documentation
+    applies:
+      - CyberArk Privilege Cloud REST API
+  - name: Identity REST API
+    scope: tenant
+    metric: varies
+    limit: see CyberArk Identity API reference
+    applies:
+      - CyberArk Identity REST API
+  - name: Conjur token issuance
+    scope: tenant
+    metric: requests_per_second
+    limit: configurable per Conjur deployment (authn-throttle)
     applies:
       - CyberArk Conjur Secrets Manager API
-      - CyberArk PAM Self-Hosted REST API
-      - CyberArk Privilege Cloud REST API
-      - CyberArk Identity REST API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - CyberArk Conjur Secrets Manager API
-      - CyberArk PAM Self-Hosted REST API
-      - CyberArk Privilege Cloud REST API
-      - CyberArk Identity REST API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - CyberArk Conjur Secrets Manager API
-      - CyberArk PAM Self-Hosted REST API
-      - CyberArk Privilege Cloud REST API
-      - CyberArk Identity REST API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - CyberArk Conjur Secrets Manager API
-      - CyberArk PAM Self-Hosted REST API
-      - CyberArk Privilege Cloud REST API
-      - CyberArk Identity REST API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - CyberArk Conjur Secrets Manager API
-      - CyberArk PAM Self-Hosted REST API
-      - CyberArk Privilege Cloud REST API
-      - CyberArk Identity REST API
 policies:
+  - name: Token caching
+    description: Conjur and Identity authentication tokens should be cached and reused until expiry rather
+      than minted per request to stay under throttles.
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: Honor 429 / 503 with exponential backoff and jitter; retry idempotent reads only.
+  - name: Self-hosted vs SaaS
+    description: Self-Hosted limits depend on customer-deployed PVWA / CPM sizing; SaaS limits are tenant-scoped
+      by CyberArk.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,122 +9,105 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: CyberArk
 providerId: cyberark
-publisherName: CyberArk
-serviceCategory: API
+publisherName: CyberArk Software Ltd.
+serviceCategory: Identity Security
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Authentication
-  - Cloud Security
-  - Conjur
-  - Credential Vault
-  - DevOps Secrets
-  - Endpoint Privilege Management
   - Identity Security
-  - Machine Identity
-  - MFA
-  - OpenAPI
-  - PAM
-  - Privileged Access
   - Privileged Access Management
   - Secrets Management
-  - Session Management
-  - SSO
-  - Vault
-  - Zero Trust
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the CyberArk API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps for CyberArk: enterprise per-seat / per-machine-identity subscriptions
+  across PAM, Workforce Access, Secrets Management, and Identity Governance. APIs are entitlements of
+  the product license rather than separately metered.'
+sources:
+  - https://www.cyberark.com/products/
+notes: No public pricing. Replace meter targets with contract-derived values (per-privileged-user, per-machine-identity,
+  per-workforce-user).
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Use CyberArk Identity Security Intelligence and the per-product admin consoles to count
+      privileged users, machine identities, and workforce seats; export to your CMDB / FinOps store.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Tag Safes (PAM), platforms, and Conjur policy branches by business unit / application
+      to attribute identity spend; use Identity Flows for joiner/mover/leaver attribution.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Decommission unused privileged / workforce seats at quarterly access reviews; consolidate
+      Conjur secrets across applications; right-size Privilege Cloud vs Self-Hosted PAM by deployment
+      density.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
+    description: Identity / security org owns the CyberArk contract; coordinate with finance for chargeback
+      based on Safe ownership and identity governance rollups.
 domains:
   - name: Understand Usage and Cost
     capabilities:
-      - Data Ingestion
       - Allocation
       - Reporting and Analytics
-      - Anomaly Management
   - name: Quantify Business Value
     capabilities:
-      - Planning and Estimating
       - Forecasting
       - Budgeting
-      - Benchmarking
       - Unit Economics
   - name: Optimize Usage and Cost
     capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
       - Workload Optimization
-      - Cloud Sustainability
       - Licensing and SaaS
   - name: Manage the FinOps Practice
     capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
       - Invoicing and Chargeback
       - Onboarding Workloads
-      - Intersecting Disciplines
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Enterprise Subscription
+  billingFrequency: Annual
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
+    - Usage
     - Tax
-    - Credit
     - Adjustment
   chargeFrequency: Recurring
 focusColumns:
   ServiceName: CyberArk
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Identity Security
   ProviderName: CyberArk
-  PublisherName: CyberArk
-  InvoiceIssuerName: CyberArk
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: CyberArk Software Ltd.
+  InvoiceIssuerName: CyberArk Software Ltd.
+  PricingCategory: Subscription
+  PricingUnit: seat-year
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
+  - name: privileged_users
+    description: Licensed privileged users / endpoints under PAM coverage
+    unit: seat-year
+    aggregation: max
+    dimensions:
+      - product
+      - business_unit
+  - name: workforce_users
+    description: Licensed workforce identity seats (SSO / MFA / passwordless)
+    unit: seat-year
+    aggregation: max
+    dimensions:
+      - product
+      - business_unit
+  - name: machine_identities
+    description: Licensed machine identities / secrets / certificates
+    unit: machine-year
+    aggregation: max
+    dimensions:
+      - product
+      - environment
   - name: api_requests
-    description: Count of billable API requests
+    description: API calls against CyberArk REST APIs (not separately billed; observed for capacity)
     unit: request
     aggregation: sum
     dimensions:
       - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
+      - tenant
 apis:
   - name: CyberArk Conjur Secrets Manager API
     baseURL: https://conjur.example.com
@@ -174,11 +158,11 @@ apis:
     serviceName: CyberArk Identity REST API
     serviceCategory: API
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
+  - name: Cost per Privileged User
+    metric: billed_cost / privileged_users
     target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
+  - name: Cost per Machine Identity
+    metric: billed_cost / machine_identities
     target: TBD
 maintainers:
   - FN: Kin Lane
