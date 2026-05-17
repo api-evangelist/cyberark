@@ -1,6 +1,6 @@
 aid: cyberark
 name: CyberArk
-x-type: company
+kind: company
 description: >-
   CyberArk is the global leader in identity security, providing a
   unified Identity Security Platform that protects human, machine, and
@@ -177,7 +177,7 @@ common:
     url: https://www.cyberark.com/legal-terms-of-use/
   - type: PrivacyPolicy
     url: https://www.cyberark.com/privacy-policy/
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/cyberark-context.jsonld
   - type: JSONSchema
     url: json-schema/cyberark-conjur-resource-schema.json
