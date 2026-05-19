@@ -1,0 +1,133 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CyberArk Conjur Secrets Manager API — Authentication
+  description: 'CyberArk Conjur Secrets Manager API — Authentication. 2 operations. Lead operation: Get API key for user.
+    Self-contained Naftiko capability covering one Cyberark business surface.'
+  tags:
+  - Cyberark
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CYBERARK_API_KEY: CYBERARK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: conjur-authentication
+    baseUri: https://conjur.example.com
+    description: CyberArk Conjur Secrets Manager API — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: authn-account-login
+      path: /authn/{account}/login
+      operations:
+      - name: login
+        method: GET
+        description: Get API key for user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: account
+          in: path
+          type: string
+          required: true
+    - name: authn-account-login-authenticate
+      path: /authn/{account}/{login}/authenticate
+      operations:
+      - name: authenticate
+        method: POST
+        description: Get short-lived access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: account
+          in: path
+          type: string
+          required: true
+        - name: login
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.CYBERARK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: conjur-authentication-rest
+    port: 8080
+    description: REST adapter for CyberArk Conjur Secrets Manager API — Authentication. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/authn/{account}/login
+      name: authn-account-login
+      description: REST surface for authn-account-login.
+      operations:
+      - method: GET
+        name: login
+        description: Get API key for user
+        call: conjur-authentication.login
+        with:
+          account: rest.account
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/authn/{account}/{login}/authenticate
+      name: authn-account-login-authenticate
+      description: REST surface for authn-account-login-authenticate.
+      operations:
+      - method: POST
+        name: authenticate
+        description: Get short-lived access token
+        call: conjur-authentication.authenticate
+        with:
+          account: rest.account
+          login: rest.login
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: conjur-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CyberArk Conjur Secrets Manager API — Authentication. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: get-api-key-user
+      description: Get API key for user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: conjur-authentication.login
+      with:
+        account: tools.account
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-short-lived-access-token
+      description: Get short-lived access token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: conjur-authentication.authenticate
+      with:
+        account: tools.account
+        login: tools.login
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

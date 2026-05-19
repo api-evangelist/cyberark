@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CyberArk Conjur Secrets Manager API — Health
+  description: 'CyberArk Conjur Secrets Manager API — Health. 2 operations. Lead operation: Health check. Self-contained Naftiko
+    capability covering one Cyberark business surface.'
+  tags:
+  - Cyberark
+  - Health
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CYBERARK_API_KEY: CYBERARK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: conjur-health
+    baseUri: https://conjur.example.com
+    description: CyberArk Conjur Secrets Manager API — Health business capability. Self-contained, no shared references.
+    resources:
+    - name: health
+      path: /health
+      operations:
+      - name: health
+        method: GET
+        description: Health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: info
+      path: /info
+      operations:
+      - name: serverinfo
+        method: GET
+        description: Server information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.CYBERARK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: conjur-health-rest
+    port: 8080
+    description: REST adapter for CyberArk Conjur Secrets Manager API — Health. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/health
+      name: health
+      description: REST surface for health.
+      operations:
+      - method: GET
+        name: health
+        description: Health check
+        call: conjur-health.health
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/info
+      name: info
+      description: REST surface for info.
+      operations:
+      - method: GET
+        name: serverinfo
+        description: Server information
+        call: conjur-health.serverinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: conjur-health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CyberArk Conjur Secrets Manager API — Health. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: health-check
+      description: Health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: conjur-health.health
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: server-information
+      description: Server information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: conjur-health.serverinfo
+      outputParameters:
+      - type: object
+        mapping: $.
