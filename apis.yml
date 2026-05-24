@@ -182,6 +182,8 @@ common:
   url: capabilities/cyberark-conjur-capabilities.yml
 - type: Rules
   url: rules/cyberark-conjur-rules.yml
+- type: LLMsTxt
+  url: https://developer.cyberark.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
