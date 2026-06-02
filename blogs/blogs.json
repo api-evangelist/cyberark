@@ -2,12 +2,20 @@
   "repo": "cyberark",
   "feeds": [
     {
-      "source": "https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/",
+      "source": "https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/feed/",
       "feed_url": "https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/feed/",
-      "title": "Comments on: Introducing the Conjur OpenAPI Description",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/cyberark/conjur",
+      "feed_url": "https://github.com/cyberark/conjur",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
