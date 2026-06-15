@@ -1,0 +1,387 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Conjur Secrets Manager API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API key for user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/authn/:account/login",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Exchange basic credentials for the user's API key, used as the password in subsequent /authenticate calls."
+        },
+        {
+          "info": {
+            "name": "Get short-lived access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://conjur.example.com/authn/:account/:login/authenticate",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "login",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Exchange API key for a short-lived Conjur access token used in the Authorization header on subsequent calls."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Load policy (additive)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://conjur.example.com/policies/:account/policy/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Load policy YAML additively. Existing resources are preserved."
+        },
+        {
+          "info": {
+            "name": "Replace policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://conjur.example.com/policies/:account/policy/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace policy YAML, removing resources not in the new policy."
+        },
+        {
+          "info": {
+            "name": "Update policy (additive without delete)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://conjur.example.com/policies/:account/policy/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update policy (additive without delete)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Secrets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve secret value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/secrets/:account/:kind/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve secret value"
+        },
+        {
+          "info": {
+            "name": "Store secret value",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://conjur.example.com/secrets/:account/:kind/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Store secret value"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/resources/:account",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List resources"
+        },
+        {
+          "info": {
+            "name": "Show resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/resources/:account/:kind/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show resource"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/roles/:account/:kind/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show role"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PublicKeys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show public keys for resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/public_keys/:account/:kind/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show public keys for resource"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Server information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/info"
+          },
+          "docs": "Server information"
+        },
+        {
+          "info": {
+            "name": "Health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/health"
+          },
+          "docs": "Health check"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
