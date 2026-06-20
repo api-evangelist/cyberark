@@ -12,7 +12,7 @@ description: >-
   github.com/cyberark/conjur-openapi-spec, and REST APIs for PAM Self-Hosted, Privilege Cloud, and CyberArk Identity are
   documented on docs.cyberark.com and developer.cyberark.com.
 url: https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 type: Index
 access: 3rd-Party
 position: Consuming
@@ -47,7 +47,7 @@ apis:
       and users, loading and replacing policy YAML, storing and retrieving versioned secrets, managing resources and
       roles, and retrieving public keys. The canonical OpenAPI 3.1 spec is open-sourced at
       github.com/cyberark/conjur-openapi-spec.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
     baseURL: https://conjur.example.com
     tags:
@@ -82,7 +82,7 @@ apis:
       users, sessions, and applications. Authentication uses the Logon endpoint at
       /PasswordVault/API/Auth/{provider}/Logon to obtain a session token used in the Authorization header for subsequent
       calls.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: >-
       https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
     tags:
@@ -107,7 +107,7 @@ apis:
       The Privilege Cloud Shared Services REST API mirrors the PAM Self-Hosted surface for accounts, safes, platforms,
       and users while running as a SaaS on the CyberArk Identity Security Platform. Identities and groups reference the
       tenant's CyberArk Identity directory.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm
     tags:
       - Accounts
@@ -128,7 +128,7 @@ apis:
       The CyberArk Identity REST API enables programmatic management of users, roles, applications, MFA policies, SSO,
       and SCIM-based provisioning across the workforce identity tenant. Tenants are addressed at
       {tenant}.id.cyberark.cloud and authentication uses OAuth2.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm
     tags:
       - Identity
