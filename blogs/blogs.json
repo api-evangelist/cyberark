@@ -2,11 +2,11 @@
   "repo": "cyberark",
   "feeds": [
     {
-      "source": "https://developer.cyberark.com/blog/",
+      "source": "https://developer.cyberark.com/feed/",
       "feed_url": "https://developer.cyberark.com/feed/",
       "title": "",
       "saved": 0,
-      "method": "discovered"
+      "method": "feed"
     },
     {
       "source": "https://github.com/cyberark/conjur",
@@ -17,5 +17,5 @@
     }
   ],
   "post_count": 10,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z"
 }
