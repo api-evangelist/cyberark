@@ -145,6 +145,12 @@ apis:
       - type: DeveloperPortal
         url: https://developer.cyberark.com/
 common:
+  - type: TrustCenter
+    url: security/cyberark-trust-center.yml
+  - type: DomainSecurity
+    url: security/cyberark-domain-security.yml
+  - type: Authentication
+    url: authentication/cyberark-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/cyber-ark-software
   - type: Website

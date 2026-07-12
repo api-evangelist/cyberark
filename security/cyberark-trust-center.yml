@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://trust.cyberark.com/
+url: https://trust.cyberark.com/
+certifications:
+- SOC 2
+- ISO 27001
+- ISO 27017
+- ISO 27018
+- PCI DSS
+- HIPAA
+- FedRAMP
+- GDPR
+- CSA STAR
+evidence:
+- source: https://trust.cyberark.com/
+  keywords:
+  - soc 2
+  - iso/iec 27001
+  - pci dss
+  - pci-dss
+  - hipaa
+  - fedramp
+  - trust center
+  - gdpr

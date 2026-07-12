@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cyberark-conjur-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: ConjurAuth
+  type: http
+  scheme: bearer
+  bearerFormat: ConjurAccessToken
+  sources:
+  - openapi/cyberark-conjur-openapi.yml
