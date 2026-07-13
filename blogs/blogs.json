@@ -3,10 +3,7 @@
   "feeds": [
     {
       "source": "https://developer.cyberark.com/feed/",
-      "feed_url": "https://developer.cyberark.com/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
+      "error": "HTTPError"
     },
     {
       "source": "https://github.com/cyberark/conjur",
@@ -17,5 +14,5 @@
     }
   ],
   "post_count": 10,
-  "fetched": "2026-06-27T12:03:07Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
