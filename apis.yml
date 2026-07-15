@@ -145,6 +145,8 @@ apis:
       - type: DeveloperPortal
         url: https://developer.cyberark.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/cyberark-agentic-access.yml
   - type: TrustCenter
     url: security/cyberark-trust-center.yml
   - type: DomainSecurity
