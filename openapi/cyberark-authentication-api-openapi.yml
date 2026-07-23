@@ -1,0 +1,91 @@
+openapi: 3.0.3
+info:
+  title: CyberArk Conjur Secrets Manager Authentication API
+  description: Conjur Secrets Manager is CyberArk's machine-identity and secrets management platform, available as Conjur Open Source, Conjur Enterprise (Self-Hosted), and Conjur Cloud (SaaS). The REST API enables authenticating hosts and users, loading and updating policies, storing and retrieving secrets, rotating credentials, managing public keys, and querying audit information. The canonical OpenAPI specification is published at github.com/cyberark/conjur-openapi-spec; this file is a curated profile of the most-used endpoints aligned with CyberArk Secrets Manager Self-Hosted and SaaS.
+  version: '1.0'
+  contact:
+    name: CyberArk Developer
+    url: https://developer.cyberark.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://conjur.example.com
+  description: Conjur Self-Hosted appliance (replace with appliance hostname)
+- url: https://{tenant}.secretsmgr.cyberark.cloud/api
+  description: Conjur Cloud tenant
+  variables:
+    tenant:
+      default: tenant
+      description: CyberArk Conjur Cloud tenant subdomain
+security:
+- ConjurAuth: []
+tags:
+- name: Authentication
+  description: Authenticate hosts and users, exchange credentials for access tokens.
+paths:
+  /authn/{account}/login:
+    get:
+      tags:
+      - Authentication
+      summary: Get API key for user
+      description: Exchange basic credentials for the user's API key, used as the password in subsequent /authenticate calls.
+      operationId: login
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: API key returned as plain text.
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+  /authn/{account}/{login}/authenticate:
+    post:
+      tags:
+      - Authentication
+      summary: Get short-lived access token
+      description: Exchange API key for a short-lived Conjur access token used in the Authorization header on subsequent calls.
+      operationId: authenticate
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: login
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: API key
+      responses:
+        '200':
+          description: Conjur access token (Base64-encoded JSON).
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    ConjurAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: ConjurAccessToken
+externalDocs:
+  description: Conjur OpenAPI Specification (canonical)
+  url: https://github.com/cyberark/conjur-openapi-spec

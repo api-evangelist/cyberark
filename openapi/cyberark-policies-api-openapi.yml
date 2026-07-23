@@ -1,0 +1,117 @@
+openapi: 3.0.3
+info:
+  title: CyberArk Conjur Secrets Manager Authentication Policies API
+  description: Conjur Secrets Manager is CyberArk's machine-identity and secrets management platform, available as Conjur Open Source, Conjur Enterprise (Self-Hosted), and Conjur Cloud (SaaS). The REST API enables authenticating hosts and users, loading and updating policies, storing and retrieving secrets, rotating credentials, managing public keys, and querying audit information. The canonical OpenAPI specification is published at github.com/cyberark/conjur-openapi-spec; this file is a curated profile of the most-used endpoints aligned with CyberArk Secrets Manager Self-Hosted and SaaS.
+  version: '1.0'
+  contact:
+    name: CyberArk Developer
+    url: https://developer.cyberark.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://conjur.example.com
+  description: Conjur Self-Hosted appliance (replace with appliance hostname)
+- url: https://{tenant}.secretsmgr.cyberark.cloud/api
+  description: Conjur Cloud tenant
+  variables:
+    tenant:
+      default: tenant
+      description: CyberArk Conjur Cloud tenant subdomain
+security:
+- ConjurAuth: []
+tags:
+- name: Policies
+  description: Load, update, and replace Conjur policy YAML.
+paths:
+  /policies/{account}/policy/{identifier}:
+    post:
+      tags:
+      - Policies
+      summary: Load policy (additive)
+      description: Load policy YAML additively. Existing resources are preserved.
+      operationId: loadPolicy
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: identifier
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-yaml:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Policy loaded.
+        '401':
+          description: Unauthorized
+        '422':
+          description: Policy validation error
+    put:
+      tags:
+      - Policies
+      summary: Replace policy
+      description: Replace policy YAML, removing resources not in the new policy.
+      operationId: replacePolicy
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: identifier
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-yaml:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Policy replaced.
+    patch:
+      tags:
+      - Policies
+      summary: Update policy (additive without delete)
+      operationId: updatePolicy
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: identifier
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/x-yaml:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Policy updated.
+components:
+  securitySchemes:
+    ConjurAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: ConjurAccessToken
+externalDocs:
+  description: Conjur OpenAPI Specification (canonical)
+  url: https://github.com/cyberark/conjur-openapi-spec

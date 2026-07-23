@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: CyberArk Conjur Secrets Manager Authentication Health API
+  description: Conjur Secrets Manager is CyberArk's machine-identity and secrets management platform, available as Conjur Open Source, Conjur Enterprise (Self-Hosted), and Conjur Cloud (SaaS). The REST API enables authenticating hosts and users, loading and updating policies, storing and retrieving secrets, rotating credentials, managing public keys, and querying audit information. The canonical OpenAPI specification is published at github.com/cyberark/conjur-openapi-spec; this file is a curated profile of the most-used endpoints aligned with CyberArk Secrets Manager Self-Hosted and SaaS.
+  version: '1.0'
+  contact:
+    name: CyberArk Developer
+    url: https://developer.cyberark.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://conjur.example.com
+  description: Conjur Self-Hosted appliance (replace with appliance hostname)
+- url: https://{tenant}.secretsmgr.cyberark.cloud/api
+  description: Conjur Cloud tenant
+  variables:
+    tenant:
+      default: tenant
+      description: CyberArk Conjur Cloud tenant subdomain
+security:
+- ConjurAuth: []
+tags:
+- name: Health
+  description: Health and information endpoints.
+paths:
+  /info:
+    get:
+      tags:
+      - Health
+      summary: Server information
+      operationId: serverInfo
+      responses:
+        '200':
+          description: Conjur server information
+          content:
+            application/json:
+              schema:
+                type: object
+  /health:
+    get:
+      tags:
+      - Health
+      summary: Health check
+      operationId: health
+      responses:
+        '200':
+          description: Healthy
+        '503':
+          description: Unhealthy
+components:
+  securitySchemes:
+    ConjurAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: ConjurAccessToken
+externalDocs:
+  description: Conjur OpenAPI Specification (canonical)
+  url: https://github.com/cyberark/conjur-openapi-spec

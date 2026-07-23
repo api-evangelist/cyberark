@@ -1,0 +1,129 @@
+openapi: 3.0.3
+info:
+  title: CyberArk Conjur Secrets Manager Authentication Resources API
+  description: Conjur Secrets Manager is CyberArk's machine-identity and secrets management platform, available as Conjur Open Source, Conjur Enterprise (Self-Hosted), and Conjur Cloud (SaaS). The REST API enables authenticating hosts and users, loading and updating policies, storing and retrieving secrets, rotating credentials, managing public keys, and querying audit information. The canonical OpenAPI specification is published at github.com/cyberark/conjur-openapi-spec; this file is a curated profile of the most-used endpoints aligned with CyberArk Secrets Manager Self-Hosted and SaaS.
+  version: '1.0'
+  contact:
+    name: CyberArk Developer
+    url: https://developer.cyberark.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://conjur.example.com
+  description: Conjur Self-Hosted appliance (replace with appliance hostname)
+- url: https://{tenant}.secretsmgr.cyberark.cloud/api
+  description: Conjur Cloud tenant
+  variables:
+    tenant:
+      default: tenant
+      description: CyberArk Conjur Cloud tenant subdomain
+security:
+- ConjurAuth: []
+tags:
+- name: Resources
+  description: Inspect resources (hosts, users, groups, layers, variables) and check permissions.
+paths:
+  /resources/{account}:
+    get:
+      tags:
+      - Resources
+      summary: List resources
+      operationId: listResources
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: kind
+        in: query
+        schema:
+          type: string
+          enum:
+          - user
+          - host
+          - group
+          - layer
+          - variable
+          - policy
+          - webservice
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Array of resources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Resource'
+  /resources/{account}/{kind}/{identifier}:
+    get:
+      tags:
+      - Resources
+      summary: Show resource
+      operationId: showResource
+      parameters:
+      - name: account
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: kind
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: identifier
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Resource detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+components:
+  schemas:
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+        owner:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: object
+        annotations:
+          type: array
+          items:
+            type: object
+        policy_versions:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    ConjurAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: ConjurAccessToken
+externalDocs:
+  description: Conjur OpenAPI Specification (canonical)
+  url: https://github.com/cyberark/conjur-openapi-spec
