@@ -12,7 +12,20 @@ description: >-
   github.com/cyberark/conjur-openapi-spec, and REST APIs for PAM Self-Hosted, Privilege Cloud, and CyberArk Identity are
   documented on docs.cyberark.com and developer.cyberark.com.
 url: https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cyberark.png
 type: Index
 access: 3rd-Party
 position: Consuming
@@ -39,111 +52,245 @@ tags:
   - Vault
   - Zero Trust
 apis:
-  - aid: cyberark:conjur
-    name: CyberArk Conjur Secrets Manager API
-    description: >-
-      Conjur is CyberArk's secrets management platform for machine identities and DevOps workloads, delivered as Conjur
-      Open Source, Conjur Enterprise (Self-Hosted), and Conjur Cloud (SaaS). The REST API supports authenticating hosts
-      and users, loading and replacing policy YAML, storing and retrieving versioned secrets, managing resources and
-      roles, and retrieving public keys. The canonical OpenAPI 3.1 spec is open-sourced at
-      github.com/cyberark/conjur-openapi-spec.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
-    baseURL: https://conjur.example.com
-    tags:
-      - Authentication
-      - Conjur
-      - DevOps Secrets
-      - Machine Identity
-      - Policies
-      - Resources
-      - Roles
-      - Secrets
-      - Vault
-    properties:
-      - type: Documentation
-        url: https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
-      - type: OpenAPI
-        url: openapi/cyberark-conjur-openapi.yml
-      - type: CanonicalOpenAPI
-        url: https://github.com/cyberark/conjur-openapi-spec
-      - type: Capabilities
-        url: capabilities/cyberark-conjur-capabilities.yml
-      - type: Rules
-        url: rules/cyberark-conjur-rules.yml
-      - type: GitHubRepository
-        url: https://github.com/cyberark/conjur
-      - type: Blog
-        url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
-  - aid: cyberark:pam-self-hosted
-    name: CyberArk PAM Self-Hosted REST API
-    description: >-
-      The Privileged Access Manager Self-Hosted REST API exposes the Vault for managing accounts, safes, platforms,
-      users, sessions, and applications. Authentication uses the Logon endpoint at
-      /PasswordVault/API/Auth/{provider}/Logon to obtain a session token used in the Authorization header for subsequent
-      calls.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: >-
+- aid: cyberark:pam-self-hosted
+  name: CyberArk PAM Self-Hosted REST API
+  description: >-
+    The Privileged Access Manager Self-Hosted REST API exposes the Vault for managing accounts, safes,
+    platforms, users, sessions, and applications. Authentication uses the Logon endpoint at /PasswordVault/API/Auth/{provider}/Logon
+    to obtain a session token used in the Authorization header for subsequent calls.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: >-
+    https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
+  tags:
+  - Accounts
+  - PAM
+  - Privileged Access
+  - REST
+  - Safes
+  - Sessions
+  - Vault
+  properties:
+  - type: Documentation
+    url: >-
       https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
-    tags:
-      - Accounts
-      - PAM
-      - Privileged Access
-      - REST
-      - Safes
-      - Sessions
-      - Vault
-    properties:
-      - type: Documentation
-        url: >-
-          https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
-      - type: SampleScripts
-        url: https://github.com/cyberark/epv-api-scripts
-      - type: PowerShellModule
-        url: https://github.com/pspete/psPAS
-  - aid: cyberark:privilege-cloud
-    name: CyberArk Privilege Cloud REST API
-    description: >-
-      The Privilege Cloud Shared Services REST API mirrors the PAM Self-Hosted surface for accounts, safes, platforms,
-      and users while running as a SaaS on the CyberArk Identity Security Platform. Identities and groups reference the
-      tenant's CyberArk Identity directory.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm
-    tags:
-      - Accounts
-      - PAM
-      - Privilege Cloud
-      - Safes
-      - SaaS
-      - Vault
-    properties:
-      - type: Documentation
-        url: https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm
-      - type: WhatsNew
-        url: >-
-          https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilege%20cloud/privcloud-whatsnew-v12.2.htm
-  - aid: cyberark:identity
-    name: CyberArk Identity REST API
-    description: >-
-      The CyberArk Identity REST API enables programmatic management of users, roles, applications, MFA policies, SSO,
-      and SCIM-based provisioning across the workforce identity tenant. Tenants are addressed at
-      {tenant}.id.cyberark.cloud and authentication uses OAuth2.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm
-    tags:
-      - Identity
-      - MFA
-      - OAuth2
-      - SCIM
-      - SSO
-      - Workforce Identity
-    properties:
-      - type: Documentation
-        url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm
-      - type: SCIM
-        url: https://docs.cyberark.com/identity/latest/en/content/developer/scim-management/scim-overview.htm
-      - type: DeveloperPortal
-        url: https://developer.cyberark.com/
+  - type: SampleScripts
+    url: https://github.com/cyberark/epv-api-scripts
+  - type: PowerShellModule
+    url: https://github.com/pspete/psPAS
+- aid: cyberark:privilege-cloud
+  name: CyberArk Privilege Cloud REST API
+  description: >-
+    The Privilege Cloud Shared Services REST API mirrors the PAM Self-Hosted surface for accounts, safes,
+    platforms, and users while running as a SaaS on the CyberArk Identity Security Platform. Identities
+    and groups reference the tenant's CyberArk Identity directory.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: >-
+    https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm
+  tags:
+  - Accounts
+  - PAM
+  - Privilege Cloud
+  - Safes
+  - SaaS
+  - Vault
+  properties:
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm
+  - type: WhatsNew
+    url: >-
+      https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilege%20cloud/privcloud-whatsnew-v12.2.htm
+- aid: cyberark:identity
+  name: CyberArk Identity REST API
+  description: >-
+    The CyberArk Identity REST API enables programmatic management of users, roles, applications, MFA
+    policies, SSO, and SCIM-based provisioning across the workforce identity tenant. Tenants are addressed
+    at {tenant}.id.cyberark.cloud and authentication uses OAuth2.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm
+  tags:
+  - Identity
+  - MFA
+  - OAuth2
+  - SCIM
+  - SSO
+  - Workforce Identity
+  properties:
+  - type: Documentation
+    url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm
+  - type: SCIM
+    url: >-
+      https://docs.cyberark.com/identity/latest/en/content/developer/scim-management/scim-overview.htm
+  - type: DeveloperPortal
+    url: https://developer.cyberark.com/
+- aid: cyberark:cyberark-authentication-api
+  name: CyberArk Authentication API
+  description: Authenticate hosts and users, exchange credentials for access tokens.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-authentication-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-health-api
+  name: CyberArk Health API
+  description: Health and information endpoints.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-health-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-policies-api
+  name: CyberArk Policies API
+  description: Load, update, and replace Conjur policy YAML.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-policies-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-publickeys-api
+  name: CyberArk PublicKeys API
+  description: Retrieve public keys associated with users and hosts.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - PublicKeys
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-publickeys-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-resources-api
+  name: CyberArk Resources API
+  description: Inspect resources (hosts, users, groups, layers, variables) and check permissions.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-resources-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-roles-api
+  name: CyberArk Roles API
+  description: Manage role membership and inspect role information.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-roles-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-secrets-api
+  name: CyberArk Secrets API
+  description: Store and retrieve secret values bound to variable resources.
+  humanURL: >-
+    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  baseURL: https://conjur.example.com
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-secrets-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Capabilities
+    url: capabilities/cyberark-conjur-capabilities.yml
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
 common:
   - type: AgenticAccess
     url: agentic-access/cyberark-agentic-access.yml
