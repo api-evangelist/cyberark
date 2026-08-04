@@ -1,0 +1,26 @@
+{
+  "provider": "cyberark",
+  "sources": [
+    "cyberark-authentication-api-openapi.yml",
+    "cyberark-health-api-openapi.yml",
+    "cyberark-policies-api-openapi.yml",
+    "cyberark-publickeys-api-openapi.yml",
+    "cyberark-resources-api-openapi.yml",
+    "cyberark-roles-api-openapi.yml",
+    "cyberark-secrets-api-openapi.yml"
+  ],
+  "outputs": [
+    "cyberark-authentication-api-openapi.yml",
+    "cyberark-health-api-openapi.yml",
+    "cyberark-policies-api-openapi.yml",
+    "cyberark-publickeys-api-openapi.yml",
+    "cyberark-resources-api-openapi.yml",
+    "cyberark-roles-api-openapi.yml",
+    "cyberark-secrets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
