@@ -139,8 +139,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -163,8 +161,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -187,8 +183,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -211,8 +205,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -235,8 +227,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -259,8 +249,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -283,8 +271,6 @@ apis:
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
   - type: CanonicalOpenAPI
     url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: GitHubRepository
@@ -292,6 +278,14 @@ apis:
   - type: Blog
     url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
 common:
+  - type: IssueTracker
+    url: https://github.com/cyberark/conjur/issues
+  - type: Releases
+    url: https://github.com/cyberark/conjur/releases
+  - type: CodeOfConduct
+    url: https://github.com/cyberark/.github/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/cyberark/conjur/blob/master/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/cyberark-agentic-access.yml
   - type: TrustCenter
@@ -330,8 +324,6 @@ common:
     url: json-schema/cyberark-privileged-account-schema.json
   - type: Vocabulary
     url: vocabulary/cyberark-vocabulary.yml
-  - type: Capabilities
-    url: capabilities/cyberark-conjur-capabilities.yml
   - type: Rules
     url: rules/cyberark-conjur-rules.yml
   - type: LlmsText
