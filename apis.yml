@@ -31,7 +31,7 @@ access: 3rd-Party
 position: Consuming
 created: '2026-03-25'
 modified: '2026-05-19'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 tags:
   - Authentication
   - Cloud Security
