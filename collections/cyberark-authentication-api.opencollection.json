@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Conjur Secrets Manager Authentication API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API key for user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://conjur.example.com/authn/:account/login",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Exchange basic credentials for the user's API key, used as the password in subsequent /authenticate calls."
+        },
+        {
+          "info": {
+            "name": "Get short-lived access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://conjur.example.com/authn/:account/:login/authenticate",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "login",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Exchange API key for a short-lived Conjur access token used in the Authorization header on subsequent calls."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

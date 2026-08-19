@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Conjur Secrets Manager Authentication Policies API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Load policy (additive)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://conjur.example.com/policies/:account/policy/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Load policy YAML additively. Existing resources are preserved."
+        },
+        {
+          "info": {
+            "name": "Replace policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://conjur.example.com/policies/:account/policy/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace policy YAML, removing resources not in the new policy."
+        },
+        {
+          "info": {
+            "name": "Update policy (additive without delete)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://conjur.example.com/policies/:account/policy/:identifier",
+            "params": [
+              {
+                "name": "account",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update policy (additive without delete)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
