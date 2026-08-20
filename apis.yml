@@ -62,6 +62,14 @@ apis:
   humanURL: >-
     https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
   tags:
+  - Account
+  - PAM
+  - Privileged Access
+  - REST
+  - SAFEs
+  - Sessions
+  - Vault
+  tags_raw:
   - Accounts
   - PAM
   - Privileged Access
@@ -87,6 +95,13 @@ apis:
   humanURL: >-
     https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm
   tags:
+  - Account
+  - PAM
+  - Privilege Cloud
+  - SAFEs
+  - Software-as-a-Service
+  - Vault
+  tags_raw:
   - Accounts
   - PAM
   - Privilege Cloud
@@ -109,6 +124,13 @@ apis:
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm
   tags:
+  - Identity
+  - MFA
+  - Authentication
+  - SCIM
+  - SSO
+  - Workforce Identity
+  tags_raw:
   - Identity
   - MFA
   - OAuth2
