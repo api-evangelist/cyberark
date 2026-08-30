@@ -79,7 +79,7 @@ apis:
   - PAM
   - Privileged Access
   - REST
-  - SAFEs
+  - Safes
   - Sessions
   - Vault
   tags_raw:
@@ -111,7 +111,7 @@ apis:
   - Account
   - PAM
   - Privilege Cloud
-  - SAFEs
+  - Safes
   - Software-as-a-Service
   - Vault
   tags_raw:
