@@ -227,28 +227,6 @@ apis:
     url: https://github.com/cyberark/conjur
   - type: Blog
     url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
-- aid: cyberark:cyberark-publickeys-api
-  name: CyberArk PublicKeys API
-  description: Retrieve public keys associated with users and hosts.
-  humanURL: >-
-    https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
-  baseURL: https://conjur.example.com
-  tags:
-  - PublicKeys
-  properties:
-  - type: OpenAPI
-    url: openapi/cyberark-publickeys-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
-  - type: CanonicalOpenAPI
-    url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Rules
-    url: rules/cyberark-conjur-rules.yml
-  - type: GitHubRepository
-    url: https://github.com/cyberark/conjur
-  - type: Blog
-    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
 - aid: cyberark:cyberark-resources-api
   name: CyberArk Resources API
   description: Inspect resources (hosts, users, groups, layers, variables) and check permissions.
@@ -304,6 +282,28 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cyberark-secrets-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
+  - type: CanonicalOpenAPI
+    url: https://github.com/cyberark/conjur-openapi-spec
+  - type: Rules
+    url: rules/cyberark-conjur-rules.yml
+  - type: GitHubRepository
+    url: https://github.com/cyberark/conjur
+  - type: Blog
+    url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+- aid: cyberark:cyberark-public-keys-api
+  name: CyberArk Public Keys API
+  description: Retrieve public keys associated with users and hosts.
+  humanURL: >-
+    https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
+  baseURL: https://conjur.example.com
+  tags:
+  - Public Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-public-keys-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
