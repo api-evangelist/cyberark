@@ -82,7 +82,7 @@ apis:
   - PAM
   - Privileged Access
   - REST
-  - SAFEs
+  - SAFe
   - Sessions
   - Vault
   tags_raw:
@@ -114,7 +114,7 @@ apis:
   - Account
   - PAM
   - Privilege Cloud
-  - SAFEs
+  - SAFe
   - Software-as-a-Service
   - Vault
   tags_raw:
@@ -300,6 +300,8 @@ apis:
     https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
   baseURL: https://conjur.example.com
   tags:
+  - PublicKeys
+  tags_raw:
   - Public Keys
   properties:
   - type: OpenAPI
