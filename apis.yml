@@ -13,17 +13,20 @@ description: >-
   documented on docs.cyberark.com and developer.cyberark.com.
 url: https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - cyberark/conjur
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -67,6 +70,7 @@ tags:
   - SSO
   - Vault
   - Zero Trust
+  - Identity Federation
 apis:
 - aid: cyberark:pam-self-hosted
   name: CyberArk PAM Self-Hosted REST API
@@ -300,8 +304,6 @@ apis:
     https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm
   baseURL: https://conjur.example.com
   tags:
-  - PublicKeys
-  tags_raw:
   - Public Keys
   properties:
   - type: OpenAPI
