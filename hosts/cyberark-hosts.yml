@@ -1,0 +1,218 @@
+generated: '2026-10-03'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 17
+  own: 10
+  other_domain: 5
+  platform: 2
+  roles:
+  - api
+  - community
+  - docs
+  - identity
+  - marketing
+  - other
+  - partner
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: api-docs.cyberark.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: cyberark.com
+  role: other
+  relation: own
+- host: api.cyberark.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: cyberark.com
+  role: api
+  relation: own
+- host: community.cyberark.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: cyberark.com
+  role: community
+  relation: own
+- host: conjur.example.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: example.com
+  role: other
+  relation: other-domain
+- host: developer.cyberark.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  - LlmsText
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: cyberark.com
+  role: portal
+  relation: own
+- host: docs.cyberark.com
+  found_by:
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types: []
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: cyberark.com
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - IssueTracker
+  - Releases
+  - CodeOfConduct
+  - ContributionGuide
+  - GitHubOrganization
+  - ConjurOpenAPISpec
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: live.paloaltonetworks.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: paloaltonetworks.com
+  role: other
+  relation: other-domain
+- host: marketplace.cyberark.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Marketplace
+  serves: []
+  registrable_domain: cyberark.com
+  role: other
+  relation: own
+- host: partners.cyberark.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  types: []
+  serves: []
+  title: Login | Salesforce
+  status: 200
+  platform: login.salesforce.com
+  registrable_domain: cyberark.com
+  role: partner
+  relation: own
+- host: register.paloaltonetworks.com
+  found_by:
+  - pointer
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: paloaltonetworks.com
+  role: identity
+  relation: other-domain
+- host: status.cyberark.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: cyberark.com
+  role: status
+  relation: own
+- host: support.paloaltonetworks.com
+  found_by:
+  - pointer
+  types:
+  - Support
+  serves: []
+  registrable_domain: paloaltonetworks.com
+  role: support
+  relation: other-domain
+- host: trust.cyberark.com
+  found_by:
+  - pointer
+  types:
+  - Compliance
+  serves: []
+  registrable_domain: cyberark.com
+  role: other
+  relation: own
+- host: www.cyberark.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Website
+  - Products
+  - Trust
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: cyberark.com
+  role: website
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.paloaltonetworks.com
+  found_by:
+  - pointer
+  - docs-index
+  types:
+  - Newsroom
+  - Blog
+  serves:
+  - docs
+  registrable_domain: paloaltonetworks.com
+  role: marketing
+  relation: other-domain

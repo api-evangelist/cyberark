@@ -1,0 +1,11 @@
+generated: '2026-10-03'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/cyberark-authentication-api-openapi.yml
+skills:
+- file: skills/cyberark-authentication-get-token.md
+  name: cyberark-authentication-get-token
+  api: openapi/cyberark-authentication-api-openapi.yml
+  operations:
+  - login
+  - authenticate

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cyberark/main/json-schema/cyberark-role-schema.json",
+  "title": "Role",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/cyberark-roles-api-openapi.yml#/components/schemas/Role",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

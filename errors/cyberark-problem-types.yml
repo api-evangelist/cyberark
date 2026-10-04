@@ -1,0 +1,43 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/cyberark-authentication-api-openapi.yml
+- openapi/cyberark-health-api-openapi.yml
+- openapi/cyberark-policies-api-openapi.yml
+- openapi/cyberark-public-keys-api-openapi.yml
+- openapi/cyberark-resources-api-openapi.yml
+- openapi/cyberark-roles-api-openapi.yml
+- openapi/cyberark-secrets-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 13
+  statuses_declared: 4
+problems:
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 4
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Not found
+  operations: 1
+  media_types: []
+  schema: null
+- status: 422
+  title: Unprocessable Content
+  description: Policy validation error
+  operations: 1
+  media_types: []
+  schema: null
+- status: 503
+  title: Service Unavailable
+  description: Unhealthy
+  operations: 1
+  media_types: []
+  schema: null

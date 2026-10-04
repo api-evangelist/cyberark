@@ -1,0 +1,73 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.cyberark.com/whats-new/latest/en/
+sources:
+- https://docs.cyberark.com/whats-new/latest/en/
+entries:
+- breaking: false
+  highlights:
+  - You can select specific cloud directory attributes to exclude from external identity provider (IdP) sync.
+  - Excluded attributes retain their current values when a federated user signs in, while the remaining attributes continue to sync.
+  date: '2026-10-02'
+- breaking: false
+  highlights:
+  - You can configure the same identity provider (IdP) signing certificate for different child domains, even when those domains share the same
+    IdP.
+  - This simplifies identity management for organizations with complex domain setups, reducing configuration duplication and the risk of errors.
+  date: '2026-10-02'
+- breaking: false
+  highlights:
+  - You can now assign read-only admin rights to SCIM service accounts in an Identity role, instead of requiring full User Management rights.
+  - This lets provisioning integrations read users, groups, safes, and containers from SCIM API endpoints without the risk of unintended write
+    access.
+  date: '2026-10-02'
+- breaking: false
+  highlights:
+  - Secure AI agents now includes Activity insights, a visual view covering 90 days of how users, AI agents, MCP servers, and tools are connected
+    and interacting in your tenant.
+  - The insights tab also shows which AI agents, MCP servers, and tools are most active, and where the highest activity points in your setup are.
+  date: '2026-10-01'
+- breaking: false
+  highlights:
+  - Secure Browser has reached End of Life (EOL) and will be permanently discontinued on September 30, 2026.
+  - Access to the service will be disabled on that date.
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - With this update, existing sets with no endpoints automatically have endpoint groups activated.
+  - New sets automatically include endpoint groups.
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - All references to Computer or Computers in the console interface have been updated to Endpoint or Endpoints, including all menus, table columns,
+    and filters.
+  - This is a display‑only change; no action is required.
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - The legacy My Computers page displays a notice explaining the steps to migrate to the new Endpoint management service and ISPSS.
+  - Complete migration by the following deadlines to avoid service disruption.
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - You can generate reports directly from the Reports page table row and preview a dialog box directly from the End‑User UI page table row, without
+    opening a separate action menu.
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - 'The role creation and management process follows an updated sequence: Create the role, Assign the set, Assign permission groups, Assign users
+    in the Manage space.'
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - EPM is integrated with CORA AI in ISPSS, allowing monitoring tenant health, natural language queries, direct upgrades, and governance within
+    existing permissions.
+  date: '2026-09-27'
+- breaking: false
+  highlights:
+  - You can filter endpoints on the Endpoints page by unbound status and IP address ranges to identify unassigned devices and take targeted action.
+  date: '2026-09-27'
+scheme: v<major>.<minor>
+current_version: v26.15
+docs: https://docs.cyberark.com/whats-new/latest/en/

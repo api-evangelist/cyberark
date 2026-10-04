@@ -1,17 +1,19 @@
 aid: cyberark
+
 name: CyberArk
+
 kind: company
-description: >-
-  CyberArk is the global leader in identity security, providing a unified Identity Security Platform that protects
-  human, machine, and application identities across hybrid and multi-cloud environments. Core product lines include
-  Privileged Access Manager (PAM Self-Hosted) and Privilege Cloud for credential vaulting and session management; Conjur
-  Secrets Manager (Open Source, Enterprise, and Cloud) for machine-identity and DevOps secrets; CyberArk Identity for
-  workforce SSO, MFA, and lifecycle; Endpoint Privilege Manager for least-privilege enforcement on Windows / macOS /
-  Linux endpoints; Secure Cloud Access for just-in-time cloud entitlements; and Customer Identity for B2B / B2C
-  identity. CyberArk publishes a canonical OpenAPI 3.1 specification for Conjur Secrets Manager at
-  github.com/cyberark/conjur-openapi-spec, and REST APIs for PAM Self-Hosted, Privilege Cloud, and CyberArk Identity are
-  documented on docs.cyberark.com and developer.cyberark.com.
+
+description: CyberArk is the global leader in identity security, providing a unified Identity Security Platform that protects human, machine,
+  and application identities across hybrid and multi-cloud environments. Core product lines include Privileged Access Manager (PAM Self-Hosted)
+  and Privilege Cloud for credential vaulting and session management; Conjur Secrets Manager (Open Source, Enterprise, and Cloud) for machine-identity
+  and DevOps secrets; CyberArk Identity for workforce SSO, MFA, and lifecycle; Endpoint Privilege Manager for least-privilege enforcement on Windows
+  / macOS / Linux endpoints; Secure Cloud Access for just-in-time cloud entitlements; and Customer Identity for B2B / B2C identity. CyberArk publishes
+  a canonical OpenAPI 3.1 specification for Conjur Secrets Manager at github.com/cyberark/conjur-openapi-spec, and REST APIs for PAM Self-Hosted,
+  Privilege Cloud, and CyberArk Identity are documented on docs.cyberark.com and developer.cyberark.com.
+
 url: https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml
+
 deliveryModel:
   model: saas
   license_evidence:
@@ -28,6 +30,7 @@ deliveryModel:
   - repository-not-product
   generated: '2026-09-25'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -41,36 +44,144 @@ accessModel:
   - plans
   - authentication
   - security
-  - {url: 'https://www.cyberark.com', status: 301, note: 'declared website redirects to https://www.paloaltonetworks.com/idira — a different registrable domain (cyberark.com -> paloaltonetworks.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
+  - url: https://www.cyberark.com
+    status: 301
+    note: declared website redirects to https://www.paloaltonetworks.com/idira — a different registrable domain (cyberark.com -> paloaltonetworks.com),
+      possible rename or acquisition (probed 2026-09-03, roadmap#169)
   generated: '2026-09-03'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cyberark.png
+
 type: Index
+
 access: 3rd-Party
+
 position: Consuming
+
 created: '2026-03-25'
+
 modified: '2026-05-19'
+
 specificationVersion: '0.23'
+
 tags:
-  - Authentication
-  - Cloud Security
-  - Conjur
-  - Credential Vault
-  - DevOps Secrets
-  - Endpoint Privilege Management
-  - Identity Security
-  - Machine Identity
-  - MFA
-  - OpenAPI
-  - PAM
-  - Privileged Access
-  - Privileged Access Management
-  - Secrets Management
-  - Session Management
-  - SSO
-  - Vault
-  - Zero Trust
-  - Identity Federation
+- Authentication
+- Cloud Security
+- Conjur
+- Credential Vault
+- DevOps Secrets
+- Endpoint Privilege Management
+- Identity Security
+- Machine Identity
+- MFA
+- OpenAPI
+- PAM
+- Privileged Access
+- Privileged Access Management
+- Secrets Management
+- Session Management
+- SSO
+- Vault
+- Zero Trust
+- Identity Federation
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Documentation
+  url: https://api-docs.cyberark.com/
+- type: FinOps
+  url: finops/cyberark-finops.yml
+- type: RateLimits
+  url: rate-limits/cyberark-rate-limits.yml
+- type: Plans
+  url: plans/cyberark-plans-pricing.yml
+- type: Spectral
+  url: rules/cyberark-rules.yml
+- type: Spectral
+  url: rules/cyberark-jsonschema-spectral-rules.yml
+- type: Spectral
+  url: rules/cyberark-conjur-rules.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/cyberark-data-model.yml
+- type: Compliance
+  url: https://trust.cyberark.com/
+- type: ErrorCatalog
+  url: errors/cyberark-problem-types.yml
+- type: Conformance
+  url: conformance/cyberark-conformance.yml
+- type: LLMsTxt
+  url: llms/cyberark-llms.txt
+- type: WellKnown
+  url: well-known/cyberark-well-known.yml
+- type: Hosts
+  url: hosts/cyberark-hosts.yml
+- type: Vendors
+  url: vendors/cyberark-vendors.yml
+- type: Support
+  url: https://support.paloaltonetworks.com/
+- type: StatusPage
+  url: https://status.cyberark.com/
+- type: SignUp
+  url: https://register.paloaltonetworks.com/igniteontour
+- type: Newsroom
+  url: https://www.paloaltonetworks.com/company/newsroom
+- type: Blog
+  url: https://www.paloaltonetworks.com/blog/
+- type: IssueTracker
+  url: https://github.com/cyberark/conjur/issues
+- type: Releases
+  url: https://github.com/cyberark/conjur/releases
+- type: CodeOfConduct
+  url: https://github.com/cyberark/.github/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/cyberark/conjur/blob/master/CONTRIBUTING.md
+- type: AgenticAccess
+  url: agentic-access/cyberark-agentic-access.yml
+- type: TrustCenter
+  url: security/cyberark-trust-center.yml
+- type: DomainSecurity
+  url: security/cyberark-domain-security.yml
+- type: Authentication
+  url: authentication/cyberark-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/cyber-ark-software
+- type: Website
+  url: https://www.cyberark.com
+- type: Products
+  url: https://www.cyberark.com/products/
+- type: DeveloperPortal
+  url: https://developer.cyberark.com/
+- type: GitHubOrganization
+  url: https://github.com/cyberark
+- type: ConjurOpenAPISpec
+  url: https://github.com/cyberark/conjur-openapi-spec
+- type: Marketplace
+  url: https://marketplace.cyberark.com/
+- type: Trust
+  url: https://www.cyberark.com/trust/
+- type: TermsOfService
+  url: https://www.cyberark.com/legal-terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.cyberark.com/privacy-policy/
+- type: JSONLD
+  url: json-ld/cyberark-context.jsonld
+- type: JSONSchema
+  url: json-schema/cyberark-conjur-resource-schema.json
+- type: JSONSchema
+  url: json-schema/cyberark-privileged-account-schema.json
+- type: Vocabulary
+  url: vocabulary/cyberark-vocabulary.yml
+- type: Rules
+  url: rules/cyberark-conjur-rules.yml
+- type: LlmsText
+  url: https://developer.cyberark.com/llms.txt
+
 apis:
 - aid: cyberark:pam-self-hosted
   name: CyberArk PAM Self-Hosted REST API
@@ -253,6 +364,8 @@ apis:
     url: https://github.com/cyberark/conjur
   - type: Blog
     url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+  - type: JSONSchema
+    url: json-schema/cyberark-resource-schema.json
 - aid: cyberark:cyberark-roles-api
   name: CyberArk Roles API
   description: Manage role membership and inspect role information.
@@ -275,6 +388,8 @@ apis:
     url: https://github.com/cyberark/conjur
   - type: Blog
     url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
+  - type: JSONSchema
+    url: json-schema/cyberark-role-schema.json
 - aid: cyberark:cyberark-secrets-api
   name: CyberArk Secrets API
   description: Store and retrieve secret values bound to variable resources.
@@ -319,57 +434,9 @@ apis:
     url: https://github.com/cyberark/conjur
   - type: Blog
     url: https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/
-common:
-  - type: IssueTracker
-    url: https://github.com/cyberark/conjur/issues
-  - type: Releases
-    url: https://github.com/cyberark/conjur/releases
-  - type: CodeOfConduct
-    url: https://github.com/cyberark/.github/blob/main/CODE_OF_CONDUCT.md
-  - type: ContributionGuide
-    url: https://github.com/cyberark/conjur/blob/master/CONTRIBUTING.md
-  - type: AgenticAccess
-    url: agentic-access/cyberark-agentic-access.yml
-  - type: TrustCenter
-    url: security/cyberark-trust-center.yml
-  - type: DomainSecurity
-    url: security/cyberark-domain-security.yml
-  - type: Authentication
-    url: authentication/cyberark-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/cyber-ark-software
-  - type: Website
-    url: https://www.cyberark.com
-  - type: Products
-    url: https://www.cyberark.com/products/
-  - type: Documentation
-    url: https://docs.cyberark.com
-  - type: DeveloperPortal
-    url: https://developer.cyberark.com/
-  - type: GitHubOrganization
-    url: https://github.com/cyberark
-  - type: ConjurOpenAPISpec
-    url: https://github.com/cyberark/conjur-openapi-spec
-  - type: Marketplace
-    url: https://marketplace.cyberark.com/
-  - type: Trust
-    url: https://www.cyberark.com/trust/
-  - type: TermsOfService
-    url: https://www.cyberark.com/legal-terms-of-use/
-  - type: PrivacyPolicy
-    url: https://www.cyberark.com/privacy-policy/
-  - type: JSONLD
-    url: json-ld/cyberark-context.jsonld
-  - type: JSONSchema
-    url: json-schema/cyberark-conjur-resource-schema.json
-  - type: JSONSchema
-    url: json-schema/cyberark-privileged-account-schema.json
-  - type: Vocabulary
-    url: vocabulary/cyberark-vocabulary.yml
-  - type: Rules
-    url: rules/cyberark-conjur-rules.yml
-  - type: LlmsText
-    url: https://developer.cyberark.com/llms.txt
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-10-03'
+  status: enriched
+  artifacts_added: 16
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

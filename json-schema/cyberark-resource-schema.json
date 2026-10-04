@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cyberark/main/json-schema/cyberark-resource-schema.json",
+  "title": "Resource",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/cyberark-resources-api-openapi.yml#/components/schemas/Resource",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "policy_versions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
