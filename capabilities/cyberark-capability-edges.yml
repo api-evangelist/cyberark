@@ -1,0 +1,24 @@
+slug: cyberark
+provider: CyberArk
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Roles
+  spec_file: cyberark-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: 'GET /roles/{account}/{kind}/{identifier} showRole — Show role; schema: Role'
+  reason: Roles in Conjur are RBAC principals used to grant privileges, so this surface is identity and
+    access administration, though only a single read operation is exposed.
