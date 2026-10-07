@@ -164,10 +164,8 @@ apis:
 unitEconomics:
   - name: Cost per Privileged User
     metric: billed_cost / privileged_users
-    target: TBD
   - name: Cost per Machine Identity
     metric: billed_cost / machine_identities
-    target: TBD
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
