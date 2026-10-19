@@ -294,8 +294,6 @@ apis:
   tags:
   - Authentication
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-authentication-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
@@ -316,8 +314,6 @@ apis:
   tags:
   - Health
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-health-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
@@ -338,8 +334,6 @@ apis:
   tags:
   - Policies
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-policies-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
@@ -360,8 +354,6 @@ apis:
   tags:
   - Resources
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-resources-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
@@ -384,8 +376,6 @@ apis:
   tags:
   - Roles
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-roles-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
@@ -408,8 +398,6 @@ apis:
   tags:
   - Secrets
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-secrets-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html
@@ -432,8 +420,6 @@ apis:
   tags_raw:
   - Public Keys
   properties:
-  - type: OpenAPI
-    url: openapi/cyberark-public-keys-api-openapi.yml
   - type: Documentation
     url: >-
       https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html

@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/cyberark/conjur-openapi-spec/HEAD/spec/openapi.yml",
+ "final": "https://raw.githubusercontent.com/cyberark/conjur-openapi-spec/HEAD/spec/openapi.yml",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 9819,
+ "sha256": "68343f37a1e5e11ef0dbc4e1761e44f7531c557a35c429b17a4def56e104a294",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

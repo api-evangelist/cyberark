@@ -1,35 +1,17 @@
 {
   "provider": "cyberark",
   "sources": [
-    "_original/cyberark-conjur-openapi.yml"
+    "_original/cyberark-openapi.yml"
   ],
-  "outputs": [
-    "cyberark-authentication-api-openapi.yml",
-    "cyberark-health-api-openapi.yml",
-    "cyberark-policies-api-openapi.yml",
-    "cyberark-publickeys-api-openapi.yml",
-    "cyberark-resources-api-openapi.yml",
-    "cyberark-roles-api-openapi.yml",
-    "cyberark-secrets-api-openapi.yml"
-  ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "outputs": [],
+  "archived": [],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "produced no outputs (1 source(s) have no operations) \u2014 sources left in place rather than archived"
+  ],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "cyberark-conjur-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "superseded outputs removed: cyberark-public-keys-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 10 total)"
+    "cyberark-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
   ],
-  "skipped": [
-    "cyberark-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cyberark-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cyberark-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cyberark-public-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cyberark-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cyberark-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cyberark-secrets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
