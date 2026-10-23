@@ -28,6 +28,8 @@ checked:
 - https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search/all
 - https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search?SearchMode=Advanced&Standard=140-2&CertificateStatus=Historical&ValidationYear=0
 - https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products
+- ansible/integrations/ansible-integration-edges.yml
+- chef-software/integrations/chef-software-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (actions)
@@ -47,81 +49,6 @@ edges:
   - Verified creator
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
-- partner_name: CrowdStrike (own)
-  partner: crowdstrike
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.crowdstrike.com/listings/cyberark-privileged-access-manager/
-  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
-  apps:
-  - CyberArk Privileged Access Manager
-  listing_count: 2
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/CyberArk%20Enterprise%20Password%20Vault%20(EPV)%20Events
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - CyberArk Privilege Access Manager (PAM) Events
-  - CyberArkAudit
-  - CyberArkEPM
-  listing_count: 3
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Identity
-  badges:
-  - support-tier:partner
-- partner_name: Palo Alto Networks (own)
-  partner: palo-alto-networks
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://cortex.marketplace.pan.dev/marketplace/details/CyberArkPAS/
-  mirror_of: palo-alto-networks/integrations/palo-alto-networks-integration-edges.yml
-  apps:
-  - CyberArk
-  - CyberArk Central Credential Provider (CCP)
-  listing_count: 2
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Identity and Access Management
-  badges:
-  - support:partner
-- partner_name: Splunk (own)
-  partner: splunk
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://splunkbase.splunk.com/app/7005/
-  mirror_of: splunk/integrations/splunk-integration-edges.yml
-  apps:
-  - CyberArk Next-Gen Access Add-on for Splunk
-  - CyberArk Audit for Splunk (for Linux 64-bit)
-  listing_count: 2
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: addon
 - partner_name: FedRAMP
   partner: null
   partner_match: register
@@ -532,5 +459,119 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-tx-ramp-certified-cloud.py
   first_seen: '2026-10-22'
+- partner_name: CrowdStrike (own)
+  partner: crowdstrike
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.crowdstrike.com/listings/cyberark-privileged-access-manager/
+  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
+  apps:
+  - CyberArk Privileged Access Manager
+  listing_count: 2
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/CyberArk%20Enterprise%20Password%20Vault%20(EPV)%20Events
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - CyberArk Privilege Access Manager (PAM) Events
+  - CyberArkAudit
+  - CyberArkEPM
+  listing_count: 3
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Identity
+  badges:
+  - support-tier:partner
+- partner_name: Palo Alto Networks (own)
+  partner: palo-alto-networks
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://cortex.marketplace.pan.dev/marketplace/details/CyberArkPAS/
+  mirror_of: palo-alto-networks/integrations/palo-alto-networks-integration-edges.yml
+  apps:
+  - CyberArk
+  - CyberArk Central Credential Provider (CCP)
+  listing_count: 2
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Identity and Access Management
+  badges:
+  - support:partner
+- partner_name: Splunk (own)
+  partner: splunk
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://splunkbase.splunk.com/app/7005/
+  mirror_of: splunk/integrations/splunk-integration-edges.yml
+  apps:
+  - CyberArk Next-Gen Access Add-on for Splunk
+  - CyberArk Audit for Splunk (for Linux 64-bit)
+  listing_count: 2
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: addon
+- partner_name: Ansible (ansible-galaxy)
+  partner: ansible
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: ansible-galaxy
+  evidence: https://galaxy.ansible.com/ui/repo/published/cyberark/pas/
+  mirror_of: ansible/integrations/ansible-integration-edges.yml
+  apps:
+  - cyberark.pas
+  - cyberark.conjur
+  - cyberark.isp
+  - cyberark.bizdev
+  - cyberark.conjur_collection
+  - cyberarkfrlab.dpa
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Ansible collection)
+- partner_name: Chef Software (chef-supermarket)
+  partner: chef-software
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: chef-supermarket
+  evidence: https://supermarket.chef.io/cookbooks/cyberark
+  mirror_of: chef-software/integrations/chef-software-integration-edges.yml
+  apps:
+  - cyberark
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Chef cookbook)
 source:
 - https://github.com/marketplace?type=actions
