@@ -1,4 +1,4 @@
-# CyberArk (cyberark)
+# CyberArk
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,164 +66,167 @@
 
 CyberArk is the global leader in identity security, providing a unified Identity Security Platform that protects human, machine, and application identities across hybrid and multi-cloud environments. Core product lines include Privileged Access Manager (PAM Self-Hosted) and Privilege Cloud for credential vaulting and session management; Conjur Secrets Manager (Open Source, Enterprise, and Cloud) for machine-identity and DevOps secrets; CyberArk Identity for workforce SSO, MFA, and lifecycle; Endpoint Privilege Manager for least-privilege enforcement on Windows / macOS / Linux endpoints; Secure Cloud Access for just-in-time cloud entitlements; and Customer Identity for B2B / B2C identity. CyberArk publishes a canonical OpenAPI 3.1 specification for Conjur Secrets Manager at github.com/cyberark/conjur-openapi-spec, and REST APIs for PAM Self-Hosted, Privilege Cloud, and CyberArk Identity are documented on docs.cyberark.com and developer.cyberark.com.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cyberark/refs/heads/main/apis.yml)
+**Areas:** Authentication · Cloud Security · Conjur · Credential Vault · DevOps Secrets · Endpoint Privilege Management · Identity Security · Machine Identity · MFA · OpenAPI · Privileged Access Management · Secrets Management
 
-## Scope
+## CyberArk on APIs.io
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for CyberArk is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cyberark/](https://apis.io/providers/cyberark/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Authentication
-- Cloud Security
-- Conjur
-- Credential Vault
-- DevOps Secrets
-- Endpoint Privilege Management
-- Identity Security
-- Machine Identity
-- MFA
-- OpenAPI
-- PAM
-- Privileged Access
-- Privileged Access Management
-- Secrets Management
-- Session Management
-- SSO
-- Vault
-- Zero Trust
+- [CyberArk PAM Self-Hosted REST API](https://apis.io/apis/cyberark/pam-self-hosted/) — The Privileged Access Manager Self-Hosted REST API exposes the Vault for managing accounts, safes, platforms, users, sessions, and applications.…
+- [CyberArk Privilege Cloud REST API](https://apis.io/apis/cyberark/privilege-cloud/) — The Privilege Cloud Shared Services REST API mirrors the PAM Self-Hosted surface for accounts, safes, platforms, and users while running as a SaaS on the…
+- [CyberArk Identity REST API](https://apis.io/apis/cyberark/identity/) — The CyberArk Identity REST API enables programmatic management of users, roles, applications, MFA policies, SSO, and SCIM-based provisioning across the…
+- [CyberArk Authentication API](https://apis.io/apis/cyberark/cyberark-authentication-api/) — Authenticate hosts and users, exchange credentials for access tokens.
+- [CyberArk Health API](https://apis.io/apis/cyberark/cyberark-health-api/) — Health and information endpoints.
+- [CyberArk Policies API](https://apis.io/apis/cyberark/cyberark-policies-api/) — Load, update, and replace Conjur policy YAML.
+- [CyberArk Resources API](https://apis.io/apis/cyberark/cyberark-resources-api/) — Inspect resources (hosts, users, groups, layers, variables) and check permissions.
+- [CyberArk Roles API](https://apis.io/apis/cyberark/cyberark-roles-api/) — Manage role membership and inspect role information.
+- [CyberArk Secrets API](https://apis.io/apis/cyberark/cyberark-secrets-api/) — Store and retrieve secret values bound to variable resources.
+- [CyberArk Public Keys API](https://apis.io/apis/cyberark/cyberark-public-keys-api/) — Retrieve public keys associated with users and hosts.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-25
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CyberArk Conjur Secrets Manager API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Conjur is CyberArk's secrets management platform for machine identities and DevOps workloads, delivered as Conjur Open Source, Conjur Enterprise (Self-Hosted), and Conjur Cloud (SaaS). The REST API supports authenticating hosts and users, loading and replacing policy YAML, storing and retrieving versioned secrets, managing resources and roles, and retrieving public keys. The canonical OpenAPI 3.1 spec is open-sourced at github.com/cyberark/conjur-openapi-spec.
+- [Cyberark Agentic Access](https://apis.io/agentic-access/cyberark/cyberark-agentic-access/)
 
-- **Human URL:** [https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html](https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html)
-- **Base URL:** `https://conjur.example.com`
+#### JSON Schema (4)
 
-#### Tags
+The data models the API reads and writes.
 
-- Authentication
-- Conjur
-- DevOps Secrets
-- Machine Identity
-- Policies
-- Resources
-- Roles
-- Secrets
-- Vault
+- [ConjurResource](https://apis.io/schemas/cyberark/cyberark-conjur-resource/)
+- [PrivilegedAccount](https://apis.io/schemas/cyberark/cyberark-privileged-account/)
+- [Resource](https://apis.io/schemas/cyberark/cyberark-resource/)
+- [Role](https://apis.io/schemas/cyberark/cyberark-role/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://docs.cyberark.com/conjur-cloud/latest/en/content/developer/conjur-api-openapi.html)
-- [OpenAPI](openapi/cyberark-conjur-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cyberark-conjur.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cyberark-conjur.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Canonical Open A P I](https://github.com/cyberark/conjur-openapi-spec)
-- [Capabilities](capabilities/cyberark-conjur-capabilities.yml)
-- [Rules](rules/cyberark-conjur-rules.yml)
-- [GitHub Repository](https://github.com/cyberark/conjur)
-- [Blog](https://developer.cyberark.com/blog/introducing-the-conjur-openapi-description/)
+Linked-data contexts for the provider's vocabulary.
 
-### CyberArk PAM Self-Hosted REST API
+- [Cyberark Context](https://apis.io/jsonld/cyberark/cyberark-context/)
 
-The Privileged Access Manager Self-Hosted REST API exposes the Vault for managing accounts, safes, platforms, users, sessions, and applications. Authentication uses the Logon endpoint at /PasswordVault/API/Auth/{provider}/Logon to obtain a session token used in the Authorization header for subsequent calls.
+#### Vocabulary (1)
 
-- **Human URL:** [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm)
+The provider's domain terms, defined.
 
-#### Tags
+- [CyberArk Vocabulary](https://apis.io/vocabularies/cyberark/cyberark-vocabulary/)
 
-- Accounts
-- PAM
-- Privileged Access
-- REST
-- Safes
-- Sessions
-- Vault
+#### Collections (8)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/implementing%20privileged%20account%20security%20web%20services%20.htm)
-- [Sample Scripts](https://github.com/cyberark/epv-api-scripts)
-- [Power Shell Module](https://github.com/pspete/psPAS)
-- [Postman Collection](collections/cyberark-conjur.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cyberark-conjur.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [CyberArk Conjur Secrets Manager Authentication API](https://apis.io/collections/cyberark/open-cyberark-authentication-api/)
+- [CyberArk Conjur Secrets Manager API](https://apis.io/collections/cyberark/open-cyberark-conjur/)
+- [CyberArk Conjur Secrets Manager Authentication Health API](https://apis.io/collections/cyberark/open-cyberark-health-api/)
+- [CyberArk Conjur Secrets Manager Authentication Policies API](https://apis.io/collections/cyberark/open-cyberark-policies-api/)
+- [CyberArk Conjur Secrets Manager Authentication PublicKeys API](https://apis.io/collections/cyberark/open-cyberark-publickeys-api/)
+- [CyberArk Conjur Secrets Manager Authentication Resources API](https://apis.io/collections/cyberark/open-cyberark-resources-api/)
+- [CyberArk Conjur Secrets Manager Authentication Roles API](https://apis.io/collections/cyberark/open-cyberark-roles-api/)
+- [CyberArk Conjur Manager Authentication Secrets API](https://apis.io/collections/cyberark/open-cyberark-secrets-api/)
 
-### CyberArk Privilege Cloud REST API
+#### Governance rules (3)
 
-The Privilege Cloud Shared Services REST API mirrors the PAM Self-Hosted surface for accounts, safes, platforms, and users while running as a SaaS on the CyberArk Identity Security Platform. Identities and groups reference the tenant's CyberArk Identity directory.
+Spectral rulesets for the provider's contracts.
 
-- **Human URL:** [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm)
+- [CyberArk — conjur rules](https://apis.io/rules/cyberark/cyberark-conjur-rules/)
+- [CyberArk — jsonschema rules](https://apis.io/rules/cyberark/cyberark-jsonschema-spectral-rules/)
+- [CyberArk API Rules](https://apis.io/rules/cyberark/cyberark-rules/)
 
-#### Tags
+#### Security (3)
 
-- Accounts
-- PAM
-- Privilege Cloud
-- Safes
-- SaaS
-- Vault
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Cyberark Authentication](https://apis.io/security/cyberark/cyberark-authentication/)
+- [Cyberark Domain Security](https://apis.io/security/cyberark/cyberark-domain-security/)
+- [Cyberark Trust Center](https://apis.io/security/cyberark/cyberark-trust-center/)
 
-- [Documentation](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/sdk/sdk-overview.htm)
-- [Whats New](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilege%20cloud/privcloud-whatsnew-v12.2.htm)
-- [Postman Collection](collections/cyberark-conjur.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cyberark-conjur.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### CyberArk Identity REST API
+Published plans, tiers and prices.
 
-The CyberArk Identity REST API enables programmatic management of users, roles, applications, MFA policies, SSO, and SCIM-based provisioning across the workforce identity tenant. Tenants are addressed at {tenant}.id.cyberark.cloud and authentication uses OAuth2.
+- [Cyberark Plans Pricing](https://apis.io/plans/cyberark/cyberark-plans-pricing/)
 
-- **Human URL:** [https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm](https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm)
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Identity
-- MFA
-- OAuth2
-- SCIM
-- SSO
-- Workforce Identity
+- [Cyberark Rate Limits](https://apis.io/rate-limits/cyberark/cyberark-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://docs.cyberark.com/identity/Latest/en/Content/Developer/Developer.htm)
-- [S C I M](https://docs.cyberark.com/identity/latest/en/content/developer/scim-management/scim-overview.htm)
-- [Developer Portal](https://developer.cyberark.com/)
-- [Postman Collection](collections/cyberark-conjur.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cyberark-conjur.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-## Common Properties
+- [Cyberark Finops](https://apis.io/finops/cyberark/cyberark-finops/)
 
-- [LinkedIn](https://www.linkedin.com/company/cyber-ark-software)
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.cyberark.com)
-- [Products](https://www.cyberark.com/products/)
-- [Documentation](https://docs.cyberark.com)
-- [Developer Portal](https://developer.cyberark.com/)
-- [GitHub Organization](https://github.com/cyberark)
-- [Conjur Open A P I Spec](https://github.com/cyberark/conjur-openapi-spec)
-- [Marketplace](https://marketplace.cyberark.com/)
-- [Trust](https://www.cyberark.com/trust/)
-- [Terms of Service](https://www.cyberark.com/legal-terms-of-use/)
-- [Privacy Policy](https://www.cyberark.com/privacy-policy/)
-- [JSON-LD](json-ld/cyberark-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/cyberark-conjur-resource-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/cyberark-privileged-account-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Vocabulary](vocabulary/cyberark-vocabulary.yml)
-- [Capabilities](capabilities/cyberark-conjur-capabilities.yml)
-- [Rules](rules/cyberark-conjur-rules.yml)
-- [L L Ms Txt](https://developer.cyberark.com/llms.txt)
+- [Documentation](https://api-docs.cyberark.com/)
+- [Sign up](https://register.paloaltonetworks.com/igniteontour)
+- [Support](https://support.paloaltonetworks.com/)
+- [Blog](https://www.paloaltonetworks.com/blog/)
+- [Compliance](https://trust.cyberark.com/)
+- [Terms of service](https://www.cyberark.com/legal-terms-of-use/)
+- [Privacy policy](https://www.cyberark.com/privacy-policy/)
+- [GitHub](https://github.com/cyberark)
+- [Status](https://status.cyberark.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 54.4 |
+| Contract governance | 31.8 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 20.8 |
+| Access clarity | 28.9 |
+
+**Agent readiness 35.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cyberark/](https://apis.io/providers/cyberark/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CyberArk: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cyberark/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
